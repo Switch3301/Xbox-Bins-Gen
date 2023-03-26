@@ -13,9 +13,6 @@ Here your locale is ar-AE.
 The format is example is given in the bins.txt file itself
 Put your emails in email|password format in accs.txt
 Go to config.json and u can put ur skuid and product id
-
-
-Subscription Tier:ProductID:Skuids
 PC Game Pass: CFQ7TTC0KGQ8  : 0002
 Xbox Game Pass Ultimate : CFQ7TTC0KHS0  : 0007
 Minecraft : 9NXP44L49SHJ: 0010 
