@@ -21,4 +21,4 @@ Minecraft : 9NXP44L49SHJ: 0010 .
 Discord : Switch#8715
 
 # Info
-This code is only made for educational purposes and me reposting doesnt mean i am promoting it but letting people not get scammed who are buying this
+This code is only made for educational purposes and me reposting doesnt mean i am promoting it but letting people not get scammed who are buying this.
