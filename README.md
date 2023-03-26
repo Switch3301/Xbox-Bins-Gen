@@ -12,10 +12,10 @@ Your URL should be something like this : https://www.xbox.com/ar-AE/xbox-game-pa
 Here your locale is ar-AE.
 The format is example is given in the bins.txt file itself
 Put your emails in email|password format in accs.txt
-Go to config.json and u can put ur skuid and product id
-PC Game Pass: CFQ7TTC0KGQ8  : 0002
-Xbox Game Pass Ultimate : CFQ7TTC0KHS0  : 0007
-Minecraft : 9NXP44L49SHJ: 0010 
+Go to config.json and u can put ur skuid and product id.
+PC Game Pass: CFQ7TTC0KGQ8  : 0002.
+Xbox Game Pass Ultimate : CFQ7TTC0KHS0  : 0007.
+Minecraft : 9NXP44L49SHJ: 0010 .
 
 # Contact 
 Discord : Switch#8715
