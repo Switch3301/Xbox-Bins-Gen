@@ -19,6 +19,7 @@ Minecraft : 9NXP44L49SHJ: 0010 .
 
 # Contact 
 Discord : Switch#8715
+Discord Server : https://discord.gg/switchuwu
 
 # Info
 This code is only made for educational purposes and me reposting doesnt mean i am promoting it but letting people not get scammed who are buying this.
