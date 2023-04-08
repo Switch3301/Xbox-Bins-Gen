@@ -445,7 +445,7 @@ def main(ms_creds: str):
 	 'authorization': xbl_auth,
 	 'content-type': 'application/json',
 	 'correlation-context':
-	 f'v=1,ms.b.tel.scenario=commerce.payments.PaymentInstrumentAdd.1,ms.b.tel.partner=northstarweb,ms.c.cfs.payments.partnerSessionId={str(uuid4())}',
+	 f'v=1,ms.b.tel.scenario=commerce.payments.PaymentInstrumentAdd.1,ms.b.tel.partner=webblends,ms.c.cfs.payments.partnerSessionId={str(uuid4())}',
 	 'sec-ch-ua-mobile': '?0',
 	 'sec-ch-ua-platform': '"Windows"',
 	 'x-ms-pidlsdk-version': '1.22.0-alpha.86_reactview',
@@ -453,7 +453,7 @@ def main(ms_creds: str):
 
 	params = {
 	 'type': 'visa,amex,mc',
-	 'partner': 'northstarweb',
+	 'partner': 'webblends',
 	 'operation': 'Add',
 	 'country': country_sm,
 	 'language': locale,
@@ -488,75 +488,93 @@ def main(ms_creds: str):
 	 'authorization': xbl_auth,
 	 'content-type': 'application/json',
 	 'correlation-context':
-	 f'v=1,ms.b.tel.scenario=commerce.payments.PaymentInstrumentAdd.1,ms.b.tel.partner=northstarweb,ms.c.cfs.payments.partnerSessionId={str(uuid4())}',
+	 f'v=1,ms.b.tel.scenario=commerce.payments.PaymentInstrumentAdd.1,ms.b.tel.partner=webblends,ms.c.cfs.payments.partnerSessionId={str(uuid4())}',
 	 'x-ms-pidlsdk-version': '1.22.0-alpha.86_reactview',
 	}
 	vcc_json = {
-	 'paymentMethodFamily': 'credit_card',
-	 'paymentMethodType': card_type,
-	 'paymentMethodOperation': 'add',
-	 'paymentMethodCountry': country_sm,
-	 'paymentMethodResource_id': 'credit_card.' + card_type,
-	 'context': 'purchase',
-	 'riskData': {
-	  'dataType': 'payment_method_riskData',
-	  'dataOperation': 'add',
-	  'dataCountry': country_sm,
-	  'greenId': str(uuid4()),
-	 },
-	 'details': {
-	  'dataType':
-	  'credit_card_mc_details',
-	  'dataOperation':
-	  'add',
-	  'dataCountry':
-	  country_sm,
-	  'accountHolderName':
-	  getRandomLetters(7).upper() + " " + getRandomLetters(5).upper(),
-	  'accountToken':
-	  card_id,
-	  'expiryMonth':
-	  exp_month,
-	  'expiryYear':
-	  exp_year,
-	  'cvvToken':
-	  cvv_id,
-	  'address': {
-	   'addressType':
-	   'billing',
-	   'addressOperation':
-	   'add',
-	   'addressCountry':
-	   country_sm,
-	   'address_line1':
-	   getRandomLetters(100) + " " + getRandomLetters(5) + " " + getRandomInt(3),
-	   'city':
-	   'New york',
-	   'region':
-	   'ny',
-	   'postal_code':
-	   postal_code,
-	   'country':
-	   country_sm,
-	  },
-	  'permission': {
-	   'dataType': 'permission_details',
-	   'dataOperation': 'add',
-	   'dataCountry': country_sm,
-	   'hmac': {
-	    'algorithm': 'hmacsha256',
-	    'keyToken': "null",
-	    'data': "null",
-	   },
-	   'userCredential': xbl_auth,
-	  },
-	 },
-	 'pxmac': response.json()[0]["data_description"]["pxmac"]["default_value"],
-	}
+    'paymentMethodFamily': 'credit_card',
+    'paymentMethodType':card_type,
+    'paymentMethodOperation': 'add',
+    'paymentMethodCountry': country_sm,
+    'paymentMethodResource_id': f'credit_card.{card_type}',
+    'sessionId': str(uuid4()),
+    'context': 'purchase',
+    'riskData': {
+        'dataType': 'payment_method_riskData',
+        'dataOperation': 'add',
+        'dataCountry': country_sm,
+        'greenId': str(uuid4()),
+    },
+    'details': {
+        'dataType': 'credit_card_visa_details',
+        'dataOperation': 'add',
+        'dataCountry': country_sm,
+        'accountHolderName': getRandomLetters(7).upper()+" "+getRandomLetters(5).upper(),
+        'accountToken': card_id,
+        'expiryMonth': exp_month,
+        'expiryYear': exp_year,
+        'cvvToken': cvv_id,
+        'address':{
+            'addressType': 'billing',
+            'addressOperation': 'add',
+            'addressCountry': country_sm,
+            'address_line1': "CASA DE JANOS NO. 1530, TORIBIO ORTEGA, 32675",
+            'city': 'Chihuahua',
+            'region': 'ch',
+            'postal_code': postal_code,
+            'country': country_sm,
+        },
+        'permission': {
+            'dataType': 'permission_details',
+            'dataOperation': 'add',
+            'dataCountry': country_sm,
+            'hmac': {
+                'algorithm': 'hmacsha256',
+                'keyToken': 'null',
+                'data': 'null',
+            },
+            'userCredential': xbl_auth,
+        },
+        'currentContext': str({
+	"id": "credit_card.",
+	"instance": "null",
+	"backupId": "null",
+	"backupInstance": "null",
+	"action": "addResource",
+	"paymentMethodFamily": "credit_card",
+	"paymentMethodType": "null",
+	"resourceActionContext": {
+		"action": "addResource",
+		"pidlDocInfo": {
+			"anonymousPidl": "false",
+			"resourceType": "paymentMethod",
+			"parameters": {
+				"type": "visa,amex,mc",
+				"partner": "webblends",
+				"operation": "Add",
+				"country": country_sm,
+				"language": locale,
+				"family": "credit_card",
+				"completePrerequisites": "true"
+			}
+		},
+		"pidlIdentity": "null",
+		"resourceInfo": "null",
+		"resourceObjPath": "null",
+		"resource": "null",
+		"prefillData": "null"
+	},
+	"partnerHints": "null",
+	"prefillData": "null",
+	"targetIdentity": "null"
+}),
+    },
+    'pxmac': response.json()[0]["data_description"]["pxmac"]["default_value"],
+}
 	params = {
 	 'country': country_sm,
 	 'language': locale,
-	 'partner': 'northstarweb',
+	 'partner': 'webblends',
 	 'completePrerequisites': 'True',
 	}
 	while True:
